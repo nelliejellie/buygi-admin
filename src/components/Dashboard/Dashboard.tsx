@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header/Header";
+import Table from "../Table/Table";
 import {
   TrendingUp,
   TrendingDown,
@@ -17,6 +18,7 @@ import CountryBar from "./CountryBar";
 import ProgressStep from "./ProgressStep";
 import WorldMap from "./WorldMap";
 import BarChart from "./BarChart";
+import Footer from "../Footer/Footer";
 
 const Dashboard = () => {
   const productData = [12, 8, 15, 10, 18, 14, 22];
@@ -27,7 +29,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col items-start w-full h-full">
       <Header />
-      <div className="min-h-screen bg-yellow-50 p-6 w-full">
+      <div className="min-h-screen  p-6 w-full">
         <div className="mx-auto">
           {/* Header Metrics */}
           <div className="flex flex-row justify-between">
@@ -238,6 +240,15 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-8">
+          <Table />
+        </div>
+        <div className="mt-8 my-4">
+          <Footer />
+        </div>
+        <div className="mt-4 my-4">
+          <h1 className="text-white">fkfi</h1>
         </div>
       </div>
     </div>
