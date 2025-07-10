@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronRight, Bell, Users, Settings, Menu, X } from "lucide-react";
+import {
+  ChevronRight,
+  Bell,
+  Users,
+  Settings,
+  Menu,
+  X,
+  MessageSquare,
+} from "lucide-react";
 
 export default function ResponsiveHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,19 +32,9 @@ export default function ResponsiveHeader() {
 
   return (
     <>
-      <div className="bg-gray-300 w-full px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className=" w-full">
+        <div className="flex items-center justify-between border-b border-gray-200">
           {/* Desktop Left Section */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <ChevronRight size={20} className="text-gray-600" />
-            </button>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <span>Components</span>
-              <ChevronRight size={16} />
-              <span className="font-medium text-gray-900">Tabs</span>
-            </div>
-          </div>
 
           {/* Mobile Left Section - Hamburger */}
           <div className="md:hidden">
@@ -49,35 +47,61 @@ export default function ResponsiveHeader() {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center px-4 flex-row justify-between space-x-4 w-full h-[80px]">
             {/* Search - Hidden on mobile */}
             <div className="hidden md:block relative">
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-80 px-4 py-2 border border-gray-300 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
-            {/* Icons */}
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Bell size={20} className="text-gray-600" />
-            </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Users size={20} className="text-gray-600" />
-            </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Settings size={20} className="text-gray-600" />
-            </button>
-
-            {/* User Profile */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-medium">WR</span>
+            <div className="flex flex-row space-x-4">
+              <div className="flex flex-row space-x-2 items-center">
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <MessageSquare size={20} className="text-gray-600" />
+                </button>
+                <h1 className="text-lg font-bold text-gray-900">Inbox</h1>
               </div>
-              <div className="hidden sm:block text-sm">
-                <div className="font-medium text-gray-900">William Roobie</div>
-                <div className="text-gray-500">CEO & Founder</div>
+              <div className="flex flex-row space-x-2 items-center">
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <Bell size={20} className="text-gray-600" />
+                </button>
+                <h1 className="text-lg font-bold text-gray-900">Chat</h1>
+              </div>
+              <div className="flex flex-row space-x-2 items-center">
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <Settings size={20} className="text-gray-600" />
+                </button>
+                <h1 className="text-lg font-bold text-gray-900">Setting</h1>
+              </div>
+            </div>
+
+            {/* Icons */}
+            <div className="flex items-center space-x-2 justify-center">
+              <div>
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <Bell size={20} className="text-gray-600" />
+                </button>
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <Users size={20} className="text-gray-600" />
+                </button>
+                <button className="p-2 hover:bg-gray-100 rounded-lg">
+                  <Settings size={20} className="text-gray-600" />
+                </button>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-medium">WR</span>
+                </div>
+                <div className="hidden sm:block text-sm">
+                  <div className="font-medium text-gray-900">
+                    William Roobie
+                  </div>
+                  <div className="text-gray-500">CEO & Founder</div>
+                </div>
               </div>
             </div>
           </div>
