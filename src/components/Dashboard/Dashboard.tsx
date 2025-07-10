@@ -15,7 +15,6 @@ import {
 import MetricCard from "./MericCard";
 import ChartLine from "./ChartLine";
 import CountryBar from "./CountryBar";
-import ProgressStep from "./ProgressStep";
 import WorldMap from "./WorldMap";
 import BarChart from "./BarChart";
 import Footer from "../Footer/Footer";
@@ -32,7 +31,7 @@ const Dashboard = () => {
       <div className="min-h-screen  p-6 w-full">
         <div className="mx-auto">
           {/* Header Metrics */}
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <MetricCard
               title="Account Reach"
               value="404K"

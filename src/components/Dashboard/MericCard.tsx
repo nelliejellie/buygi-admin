@@ -9,7 +9,7 @@ const MetricCard = ({
   icon: Icon,
   iconColor,
 }) => (
-  <div className="bg-white rounded-lg p-6 shadow-sm border w-100 mb-10">
+  <div className="bg-white rounded-lg p-6 shadow-sm border w-85 mb-10">
     <div className="flex items-center justify-between mb-2">
       <div className="flex items-center gap-3">
         <div className={`p-2 rounded-lg ${iconColor}`}>
