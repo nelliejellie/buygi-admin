@@ -138,7 +138,14 @@ const Sidebar = () => {
             />
             <SidebarItem icon={PieChart} label="Chart" />
             <SidebarItem icon={Type} label="Font Icons" />
-            <SidebarItem icon={Grip} label="Drag & Drop" />
+            <SidebarItem
+              icon={Grip}
+              label="Modal"
+              isExpanded={null}
+              path="/modal"
+              onToggle={() => toggleSection("tables")}
+              hasChildren={false}
+            />
             <SidebarItem
               icon={BarChart3}
               label="Tables"
