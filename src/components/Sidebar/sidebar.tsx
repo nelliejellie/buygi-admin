@@ -13,6 +13,7 @@ import {
   PieChart,
   Type,
   Grip,
+  FormInput,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +25,8 @@ const Sidebar = () => {
     uiElements: false,
     tables: false,
   });
+
+  const [activeItem, setActiveItem] = useState("");
 
   const navigate = useNavigate();
 
@@ -48,6 +51,7 @@ const Sidebar = () => {
         isActive ? "bg-blue-50 text-blue-600" : "text-gray-700"
       }`}
       onClick={() => {
+        setActiveItem(label); // Set active item on click
         if (path) navigate(path);
         else if (hasChildren) onToggle();
       }}
@@ -90,6 +94,7 @@ const Sidebar = () => {
             isExpanded={expandedSections.dashboard}
             onToggle={() => toggleSection("dashboard")}
             hasChildren={false}
+            isActive={activeItem === "Dashboard"}
           />
 
           <div className="pt-4">
@@ -116,7 +121,7 @@ const Sidebar = () => {
               isExpanded={expandedSections.components}
               onToggle={() => toggleSection("components")}
               hasChildren={true}
-              isActive={true}
+              isActive={false}
             />
             {expandedSections.components && (
               <div className="space-y-1">
@@ -137,14 +142,23 @@ const Sidebar = () => {
               hasChildren={true}
             />
             <SidebarItem icon={PieChart} label="Chart" />
-            <SidebarItem icon={Type} label="Font Icons" />
+            <SidebarItem
+              icon={FormInput}
+              label="Form"
+              isExpanded={null}
+              path="/form"
+              onToggle={() => toggleSection("form")}
+              hasChildren={false}
+              isActive={activeItem === "Form"}
+            />
             <SidebarItem
               icon={Grip}
               label="Modal"
               isExpanded={null}
               path="/modal"
-              onToggle={() => toggleSection("tables")}
+              onToggle={() => toggleSection("modal")}
               hasChildren={false}
+              isActive={activeItem === "Modal"}
             />
             <SidebarItem
               icon={BarChart3}
@@ -153,6 +167,7 @@ const Sidebar = () => {
               path="/table"
               onToggle={() => toggleSection("tables")}
               hasChildren={false}
+              isActive={activeItem === "Tables"}
             />
           </div>
         </nav>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Table from "./components/Tables/Table";
 import Modal from "./components/Modal/Modal";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/table" element={<Table />} />
           <Route path="/modal" element={<Modal />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
       </div>
     </Router>
