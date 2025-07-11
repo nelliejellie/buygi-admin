@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../Header/Header";
-import Table from "../Table/Table";
 import {
   TrendingUp,
   TrendingDown,
@@ -240,9 +239,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <Table />
-        </div>
+        </div> */}
         <div className="mt-8 my-4">
           <Footer />
         </div>

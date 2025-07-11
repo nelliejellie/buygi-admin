@@ -86,7 +86,7 @@ const Sidebar = () => {
           <SidebarItem
             icon={BarChart3}
             label="Dashboard"
-            path="/dashboard"
+            path="/"
             isExpanded={expandedSections.dashboard}
             onToggle={() => toggleSection("dashboard")}
             hasChildren={false}
@@ -143,8 +143,9 @@ const Sidebar = () => {
               icon={BarChart3}
               label="Tables"
               isExpanded={expandedSections.tables}
+              path="/table"
               onToggle={() => toggleSection("tables")}
-              hasChildren={true}
+              hasChildren={false}
             />
           </div>
         </nav>

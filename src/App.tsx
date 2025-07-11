@@ -1,9 +1,8 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar/sidebar";
-import Header from "./components/Header/Header";
-import MainContent from "./screens/Maincontent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Table from "./components/Tables/Table";
 
 function App() {
   return (
@@ -11,7 +10,8 @@ function App() {
       <div className="flex flex-row items-start h-screen">
         <Sidebar />
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/table" element={<Table />} />
         </Routes>
       </div>
     </Router>
