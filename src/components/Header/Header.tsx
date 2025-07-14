@@ -8,10 +8,24 @@ import {
   X,
   MessageSquare,
 } from "lucide-react";
+import { FaUser, FaCog, FaEnvelope, FaHeadphones, FaSignOutAlt } from 'react-icons/fa';
 
 export default function ResponsiveHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Close sidebar when clicking outside
   useEffect(() => {
@@ -92,20 +106,52 @@ export default function ResponsiveHeader() {
                 </button>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">WR</span>
-                </div>
-                <div className="hidden sm:block text-sm">
-                  <div className="font-medium text-gray-900">
-                    William Roobie
-                  </div>
-                  <div className="text-gray-500">CEO & Founder</div>
-                </div>
-              </div>
+              <div className="relative inline-block text-left" ref={menuRef}>
+      {/* Avatar and Name */}
+      <div
+        onClick={() => setOpen(!open)}
+        className="flex items-center space-x-2 cursor-pointer"
+      >
+        <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <span className="text-white text-sm font-medium">WR</span>
+        </div>
+        <div className="hidden sm:block text-sm">
+          <div className="font-medium text-gray-900">William Robbie</div>
+          <div className="text-gray-500">CEO & Founder</div>
+        </div>
+      </div>
+
+      {/* Dropdown */}
+      {open && (
+        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
+          <ul className="py-1 text-sm text-gray-700">
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <FaUser className="mr-2 text-gray-500" />
+              Profile
+            </li>
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <FaCog className="mr-2 text-gray-500" />
+              Setting
+            </li>
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <FaEnvelope className="mr-2 text-gray-500" />
+              Message
+            </li>
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <FaHeadphones className="mr-2 text-gray-500" />
+              Support
+            </li>
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 text-red-600 cursor-pointer">
+              <FaSignOutAlt className="mr-2 text-red-500" />
+              Sign Out
+            </li>
+          </ul>
+        </div>
+      )}
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Sidebar Overlay */}

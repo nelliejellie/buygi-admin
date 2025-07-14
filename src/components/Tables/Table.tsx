@@ -419,12 +419,10 @@ const TableWithCheckbox = () => {
 
 const Table = () => {
   return (
-    <div className="w-full h-full">
+    <div className="flex flex-col w-full h-screen overflow-auto">
       <Header />
-      <div className="w-full p-4 md:p-8 h-full">
-        <div className=" mx-auto space-y-6">
-          {/* Breadcrumb */}
-
+      <div className="w-full p-4 md:p-8 flex-1 overflow-auto">
+        <div className="space-y-6">
           {/* Table Full Width */}
           <TableFullWidth />
 
@@ -435,5 +433,6 @@ const Table = () => {
     </div>
   );
 };
+
 
 export default Table;
