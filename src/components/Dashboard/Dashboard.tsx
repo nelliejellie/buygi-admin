@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col items-start w-full h-full">
       <Header />
-      <div className="min-h-screen  p-6 w-full">
+      <div className="min-h-screen  p-6 w-full overflow-auto">
         <div className="mx-auto">
           {/* Header Metrics */}
           <div className="flex flex-col md:flex-row justify-between">

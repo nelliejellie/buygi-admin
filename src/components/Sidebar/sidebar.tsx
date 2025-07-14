@@ -77,7 +77,7 @@ const Sidebar = () => {
   );
 
   return (
-    <div className="w-80 hidden md:block  border-r border-gray-200 h-screen overflow-y-auto">
+    <div className="w-80 hidden md:block border-r border-gray-200 h-screen sticky top-0 overflow-y-auto bg-white">
       <div className="p-4">
         <div className="flex items-center space-x-2 mb-6">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
